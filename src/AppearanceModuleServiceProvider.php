@@ -28,8 +28,8 @@ class AppearanceModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $bindings = [
-        'Anomaly\AppearanceModule\Setting\SettingModel'                        => 'Anomaly\AppearanceModule\Setting\SettingModel',
-        'Anomaly\Streams\Platform\Model\Appearance\AppearanceAppearanceEntryModel' => 'Anomaly\AppearanceModule\Setting\SettingModel'
+        'Anomaly\AppearanceModule\Variable\VariableModel'                        => 'Anomaly\AppearanceModule\Variable\VariableModel',
+        'Anomaly\Streams\Platform\Model\Appearance\AppearanceVariableEntryModel' => 'Anomaly\AppearanceModule\Variable\VariableModel'
     ];
 
     /**
@@ -38,7 +38,7 @@ class AppearanceModuleServiceProvider extends AddonServiceProvider
      * @var array
      */
     protected $singletons = [
-        'Anomaly\AppearanceModule\Setting\Contract\SettingRepositoryInterface' => 'Anomaly\AppearanceModule\Setting\SettingRepository'
+        'Anomaly\AppearanceModule\Variable\Contract\VariableRepositoryInterface' => 'Anomaly\AppearanceModule\Variable\VariableRepository'
     ];
 
     /**

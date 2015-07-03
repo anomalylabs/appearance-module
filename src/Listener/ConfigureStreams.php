@@ -1,6 +1,6 @@
 <?php namespace Anomaly\AppearanceModule\Listener;
 
-use Anomaly\AppearanceModule\Setting\Contract\SettingRepositoryInterface;
+use Anomaly\AppearanceModule\Variable\Contract\VariableRepositoryInterface;
 use Illuminate\Config\Repository;
 
 /**
@@ -24,17 +24,17 @@ class ConfigureStreams
     /**
      * The appearance repository.
      *
-     * @var SettingRepositoryInterface
+     * @var VariableRepositoryInterface
      */
     protected $appearance;
 
     /**
      * Create a new ConfigureStreams instance.
      *
-     * @param SettingRepositoryInterface $appearance
+     * @param VariableRepositoryInterface $appearance
      * @param Repository                 $config
      */
-    public function __construct(SettingRepositoryInterface $appearance, Repository $config)
+    public function __construct(VariableRepositoryInterface $appearance, Repository $config)
     {
         $this->config   = $config;
         $this->appearance = $appearance;

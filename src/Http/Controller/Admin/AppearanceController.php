@@ -1,6 +1,6 @@
 <?php namespace Anomaly\AppearanceModule\Http\Controller\Admin;
 
-use Anomaly\AppearanceModule\Setting\Form\SettingFormBuilder;
+use Anomaly\AppearanceModule\Variable\Form\VariableFormBuilder;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
 /**
@@ -17,10 +17,10 @@ class AppearanceController extends AdminController
     /**
      * Return the system appearance form.
      *
-     * @param SettingFormBuilder $appearance
+     * @param VariableFormBuilder $appearance
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function edit(SettingFormBuilder $appearance)
+    public function edit(VariableFormBuilder $appearance)
     {
         return $appearance->setOption('breadcrumb', null)->render('streams');
     }

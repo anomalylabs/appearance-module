@@ -18,7 +18,7 @@ class AppearanceModule extends Module
      *
      * @var string
      */
-    protected $icon = 'cogs';
+    protected $icon = 'brush';
 
     /**
      * The module sections.
@@ -26,7 +26,8 @@ class AppearanceModule extends Module
      * @var array
      */
     protected $sections = [
-        'appearance'
+        'admin',
+        'public'
     ];
 
 }

@@ -1,6 +1,6 @@
 <?php namespace Anomaly\AppearanceModule;
 
-use Anomaly\AppearanceModule\Setting\Contract\SettingRepositoryInterface;
+use Anomaly\AppearanceModule\Variable\Contract\VariableRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\Plugin\Plugin;
 
 /**
@@ -17,16 +17,16 @@ class AppearanceModulePlugin extends Plugin
     /**
      * The appearance repository.
      *
-     * @var SettingRepositoryInterface
+     * @var VariableRepositoryInterface
      */
     protected $appearance;
 
     /**
      * Create a new AppearanceModulePlugin instance.
      *
-     * @param SettingRepositoryInterface $appearance
+     * @param VariableRepositoryInterface $appearance
      */
-    public function __construct(SettingRepositoryInterface $appearance)
+    public function __construct(VariableRepositoryInterface $appearance)
     {
         $this->appearance = $appearance;
     }
@@ -39,7 +39,7 @@ class AppearanceModulePlugin extends Plugin
     public function getFunctions()
     {
         return [
-            new \Twig_SimpleFunction('setting_get', [$this->appearance, 'get'])
+            new \Twig_SimpleFunction('appearance_get', [$this->appearance, 'get'])
         ];
     }
 }
