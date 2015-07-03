@@ -1,2 +1,3 @@
-# appearance-module
-Theme customization for admin and public themes.
+# Appearance Module
+
+Theme and theme customization management.

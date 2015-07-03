@@ -1,0 +1,36 @@
+{
+    "name": "anomaly/appearance-module",
+    "type": "streams-addon",
+    "description": "Theme and theme customization management.",
+    "version": "1.0.0",
+    "license": "MIT",
+    "keywords": [
+        "streams-addon",
+        "appearance",
+        "pyrocms",
+        "laravel"
+    ],
+    "homepage": "http://anomaly.is/",
+    "authors": [
+        {
+            "name": "AnomalyLabs, Inc.",
+            "email": "hello@anomaly.is",
+            "homepage": "http://anomaly.is/",
+            "role": "Owner"
+        }
+    ],
+    "support": {
+        "email": "support@anomaly.is"
+    },
+    "autoload": {
+        "psr-4": {
+            "Anomaly\\AppearanceModule\\": "src/"
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    },
+    "minimum-stability": "dev"
+}
