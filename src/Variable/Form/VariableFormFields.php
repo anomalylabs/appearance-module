@@ -44,11 +44,11 @@ class VariableFormFields
          * Get the fields from the config system. Sections are
          * optionally defined the same way.
          */
-        if (!$fields = $this->config->get($namespace . 'appearance/appearance')) {
-            $fields = $fields = $this->config->get($namespace . 'appearance', []);
+        if (!$fields = $this->config->get($namespace . 'variables/variables')) {
+            $fields = $fields = $this->config->get($namespace . 'variables', []);
         }
 
-        if ($sections = $this->config->get($namespace . 'appearance/sections')) {
+        if ($sections = $this->config->get($namespace . 'variables/sections')) {
             $builder->setSections($sections);
         }
 
