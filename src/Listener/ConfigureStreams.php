@@ -45,6 +45,7 @@ class ConfigureStreams
      */
     public function handle()
     {
+        return;
         $this->config->set(
             'streams.force_https',
             $this->appearance->get('streams::force_https', $this->config->get('streams.force_https'))

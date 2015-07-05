@@ -17,11 +17,11 @@ class AppearanceController extends AdminController
     /**
      * Return the system appearance form.
      *
-     * @param VariableFormBuilder $appearance
+     * @param VariableFormBuilder $variables
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function edit(VariableFormBuilder $appearance)
+    public function edit(VariableFormBuilder $variables)
     {
-        return $appearance->setOption('breadcrumb', null)->render('streams');
+        return $variables->setOption('breadcrumb', null)->render('anomaly.theme.anomaly');
     }
 }

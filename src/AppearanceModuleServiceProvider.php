@@ -46,19 +46,10 @@ class AppearanceModuleServiceProvider extends AddonServiceProvider
      *
      * @var array
      */
-    protected $listeners = [
+    /*protected $listeners = [
         'Anomaly\Streams\Platform\Addon\Event\AddonsRegistered' => [
             'Anomaly\AppearanceModule\Listener\ConfigureStreams' => 10
         ]
-    ];
-
-    /**
-     * The addon plugins.
-     *
-     * @var array
-     */
-    protected $plugins = [
-        'Anomaly\AppearanceModule\AppearanceModulePlugin'
-    ];
+    ];*/
 
 }
