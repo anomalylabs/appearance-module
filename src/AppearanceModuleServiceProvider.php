@@ -23,33 +23,14 @@ class AppearanceModuleServiceProvider extends AddonServiceProvider
     ];
 
     /**
-     * The class bindings.
-     *
-     * @var array
-     */
-    protected $bindings = [
-        'Anomaly\AppearanceModule\Variable\VariableModel'                        => 'Anomaly\AppearanceModule\Variable\VariableModel',
-        'Anomaly\Streams\Platform\Model\Appearance\AppearanceVariableEntryModel' => 'Anomaly\AppearanceModule\Variable\VariableModel'
-    ];
-
-    /**
-     * The singleton bindings.
-     *
-     * @var array
-     */
-    protected $singletons = [
-        'Anomaly\AppearanceModule\Variable\Contract\VariableRepositoryInterface' => 'Anomaly\AppearanceModule\Variable\VariableRepository'
-    ];
-
-    /**
      * The addon listeners.
      *
      * @var array
      */
-    /*protected $listeners = [
+    protected $listeners = [
         'Anomaly\Streams\Platform\Addon\Event\AddonsRegistered' => [
             'Anomaly\AppearanceModule\Listener\ConfigureStreams' => 10
         ]
-    ];*/
+    ];
 
 }

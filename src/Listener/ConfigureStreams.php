@@ -1,6 +1,6 @@
 <?php namespace Anomaly\AppearanceModule\Listener;
 
-use Anomaly\AppearanceModule\Variable\Contract\VariableRepositoryInterface;
+use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Illuminate\Config\Repository;
 
 /**
@@ -22,22 +22,22 @@ class ConfigureStreams
     protected $config;
 
     /**
-     * The appearance repository.
+     * The variable repository.
      *
-     * @var VariableRepositoryInterface
+     * @var SettingRepositoryInterface
      */
-    protected $appearance;
+    protected $settings;
 
     /**
      * Create a new ConfigureStreams instance.
      *
-     * @param VariableRepositoryInterface $appearance
+     * @param SettingRepositoryInterface $settings
      * @param Repository                 $config
      */
-    public function __construct(VariableRepositoryInterface $appearance, Repository $config)
+    public function __construct(SettingRepositoryInterface $settings, Repository $config)
     {
         $this->config   = $config;
-        $this->appearance = $appearance;
+        $this->settings = $settings;
     }
 
     /**
@@ -45,20 +45,14 @@ class ConfigureStreams
      */
     public function handle()
     {
-        return;
         $this->config->set(
-            'streams.force_https',
-            $this->appearance->get('streams::force_https', $this->config->get('streams.force_https'))
+            'streams::themes.active.standard',
+            $this->settings->get('streams::standard_theme', $this->config->get('streams::themes.active.standard'))
         );
 
         $this->config->set(
-            'streams.site_enabled',
-            $this->appearance->get('streams::site_enabled', $this->config->get('streams.site_enabled'))
-        );
-
-        $this->config->set(
-            'streams.ip_whitelist',
-            $this->appearance->get('streams::ip_whitelist', $this->config->get('streams.ip_whitelist'))
+            'streams::themes.active.admin',
+            $this->settings->get('streams::admin_theme', $this->config->get('streams::themes.active.admin'))
         );
     }
 }
