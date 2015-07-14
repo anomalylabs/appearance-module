@@ -36,12 +36,12 @@ class AppearanceModule extends Module
                 ]
             ]
         ],
-        'admin' => [
+        'admin'  => [
             'buttons' => [
                 [
                     'data-toggle' => 'modal',
                     'data-target' => '#modal',
-                    'href'        => 'admin/admin/appearance/choose',
+                    'href'        => 'admin/appearance/admin/choose',
                     'text'        => 'module::button.change_theme',
                 ]
             ]
