@@ -20,10 +20,25 @@ class PublicThemesController extends AdminController
      * Return the settings form for the public theme.
      *
      * @param SettingFormBuilder $settings
+     * @para ThemeCollection $themes
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function settings(SettingFormBuilder $settings)
+    public function settings(SettingFormBuilder $settings, ThemeCollection $themes)
     {
+        if ($theme = $themes->standard()->active()) {
+            $settings->setOption(
+                'title',
+                trans($theme->getName()) . ' <span class="text-success">(' . trans(
+                    'module::message.active'
+                ) . ')</span>'
+            );
+        } else {
+            $settings->setOption(
+                'title',
+                '<span class="text-danger">' . trans('module::message.no_public_theme') . '</span>'
+            );
+        }
+
         return $settings->render(config('streams::themes.active.standard'));
     }
 
