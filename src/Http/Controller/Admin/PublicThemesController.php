@@ -49,7 +49,7 @@ class PublicThemesController extends AdminController
      */
     public function activate(SettingRepositoryInterface $settings, $namespace)
     {
-        $settings->set('streams::standard_theme', $namespace);
+        $settings->set('streams::public_theme', $namespace);
 
         return redirect('admin/appearance');
     }
