@@ -1,5 +1,6 @@
 <?php namespace Anomaly\AppearanceModule\Listener;
 
+use Anomaly\AppearanceModule\Listener\Command\LoadSettings;
 use Anomaly\AppearanceModule\Listener\Command\LoadVariables;
 use Anomaly\Streams\Platform\Asset\Event\ThemeVariablesAreLoading;
 use Illuminate\Foundation\Bus\DispatchesCommands;
