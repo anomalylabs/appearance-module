@@ -34,7 +34,7 @@ class AppearanceModuleServiceProvider extends AddonServiceProvider
      */
     protected $listeners = [
         'Anomaly\Streams\Platform\Asset\Event\ThemeVariablesAreLoading' => [
-            'Anomaly\AppearanceModule\Listener\LoadVariables'
+            'Anomaly\AppearanceModule\Listener\LoadThemeVariables'
         ]
     ];
 

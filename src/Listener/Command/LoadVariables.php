@@ -39,7 +39,7 @@ class LoadVariables implements SelfHandling
      */
     public function handle(Repository $config)
     {
-        foreach ($config->get('theme::variables') as $key => $value) {
+        foreach ($config->get('theme::variables', []) as $key => $value) {
             $this->variables->put($key, $value);
         }
     }
