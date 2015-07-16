@@ -1,5 +1,6 @@
 <?php namespace Anomaly\AppearanceModule\Listener\Command;
 
+use Anomaly\Streams\Platform\Addon\Theme\ThemeCollection;
 use Anomaly\Streams\Platform\Support\Collection;
 use Illuminate\Config\Repository;
 use Illuminate\Contracts\Bus\SelfHandling;
@@ -35,11 +36,16 @@ class LoadVariables implements SelfHandling
     /**
      * Handle the command.
      *
-     * @param Repository $config
+     * @param Repository      $config
+     * @param ThemeCollection $themes
      */
-    public function handle(Repository $config)
+    public function handle(Repository $config, ThemeCollection $themes)
     {
-        foreach ($config->get('theme::variables', []) as $key => $value) {
+        if (!$theme = $themes->current()) {
+            return;
+        }
+
+        foreach ($config->get($theme->getNamespace('variables'), []) as $key => $value) {
             $this->variables->put($key, $value);
         }
     }
