@@ -42,7 +42,7 @@ class LoadSettings implements SelfHandling
      * @param Request                    $request
      */
     public function handle(SettingRepositoryInterface $settings, ThemeCollection $themes, Request $request)
-    {
+    {return;
         if (in_array($request->segment(1), ['installer', 'admin'])) {
             $theme = $themes->admin()->active();
         } else {
