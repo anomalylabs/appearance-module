@@ -12,7 +12,7 @@
                 <a href="{{ url_to('admin/appearance/activate/' ~ theme.namespace) }}">
                     <strong>{{ trans(theme.name) }}</strong>
 
-                    {% if theme.namesapce == config_get('streams::theme.active.standard') %}
+                    {% if theme.active %}
                         &nbsp;<span class="text-success">({{ trans('module::message.active') }})</span>
                     {% endif %}
 
