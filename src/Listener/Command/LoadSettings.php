@@ -3,8 +3,8 @@
 use Anomaly\SettingsModule\Setting\Contract\SettingRepositoryInterface;
 use Anomaly\Streams\Platform\Addon\Theme\ThemeCollection;
 use Anomaly\Streams\Platform\Support\Collection;
+use Illuminate\Config\Repository;
 use Illuminate\Contracts\Bus\SelfHandling;
-use Illuminate\Http\Request;
 
 /**
  * Class LoadSettings
@@ -39,22 +39,27 @@ class LoadSettings implements SelfHandling
      *
      * @param SettingRepositoryInterface $settings
      * @param ThemeCollection            $themes
-     * @param Request                    $request
+     * @param Repository                 $config
      */
-    public function handle(SettingRepositoryInterface $settings, ThemeCollection $themes, Request $request)
-    {return;
-        if (in_array($request->segment(1), ['installer', 'admin'])) {
-            $theme = $themes->admin()->active();
-        } else {
-            $theme = $themes->standard()->active();
-        }
-
-        if (!$theme) {
+    public function handle(SettingRepositoryInterface $settings, ThemeCollection $themes, Repository $config)
+    {
+        if (!$theme = $themes->current()) {
             return;
         }
 
-        foreach ($settings->all($theme->getNamespace()) as $key => $value) {
-            $this->variables->put($key, $value);
+        if (!$fields = $config->get($theme->getNamespace('settings/settings'))) {
+            $fields = $config->get($theme->getNamespace('settings'));
+        }
+
+        if (!$fields) {
+            return;
+        }
+
+        foreach (array_keys($fields) as $field) {
+            $this->variables->put(
+                $field,
+                $settings->get($theme->getNamespace($field), array_get($fields, $field . '.config.default_value'))
+            );
         }
     }
 }

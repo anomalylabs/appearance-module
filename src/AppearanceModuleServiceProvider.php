@@ -14,20 +14,6 @@ class AppearanceModuleServiceProvider extends AddonServiceProvider
 {
 
     /**
-     * The addon routes.
-     *
-     * @var array
-     */
-    protected $routes = [
-        'admin/appearance'                            => 'Anomaly\AppearanceModule\Http\Controller\Admin\PublicThemesController@settings',
-        'admin/appearance/choose'                     => 'Anomaly\AppearanceModule\Http\Controller\Admin\PublicThemesController@choose',
-        'admin/appearance/activate/{namespace}'       => 'Anomaly\AppearanceModule\Http\Controller\Admin\PublicThemesController@activate',
-        'admin/appearance/admin'                      => 'Anomaly\AppearanceModule\Http\Controller\Admin\AdminThemesController@settings',
-        'admin/appearance/admin/choose'               => 'Anomaly\AppearanceModule\Http\Controller\Admin\AdminThemesController@choose',
-        'admin/appearance/admin/activate/{namespace}' => 'Anomaly\AppearanceModule\Http\Controller\Admin\AdminThemesController@activate',
-    ];
-
-    /**
      * The addon listeners.
      *
      * @var array
@@ -36,6 +22,16 @@ class AppearanceModuleServiceProvider extends AddonServiceProvider
         'Anomaly\Streams\Platform\Asset\Event\ThemeVariablesAreLoading' => [
             'Anomaly\AppearanceModule\Listener\LoadThemeVariables'
         ]
+    ];
+
+    /**
+     * The addon routes.
+     *
+     * @var array
+     */
+    protected $routes = [
+        'admin/appearance'       => 'Anomaly\AppearanceModule\Http\Controller\Admin\PublicThemesController@settings',
+        'admin/appearance/admin' => 'Anomaly\AppearanceModule\Http\Controller\Admin\AdminThemesController@settings'
     ];
 
 }

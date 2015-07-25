@@ -3,7 +3,7 @@
 use Anomaly\AppearanceModule\Listener\Command\LoadSettings;
 use Anomaly\AppearanceModule\Listener\Command\LoadVariables;
 use Anomaly\Streams\Platform\Asset\Event\ThemeVariablesAreLoading;
-use Illuminate\Foundation\Bus\DispatchesCommands;
+use Illuminate\Foundation\Bus\DispatchesJobs;
 
 /**
  * Class LoadVariables
@@ -16,7 +16,7 @@ use Illuminate\Foundation\Bus\DispatchesCommands;
 class LoadThemeVariables
 {
 
-    use DispatchesCommands;
+    use DispatchesJobs;
 
     /**
      * Handle the event.
@@ -25,7 +25,7 @@ class LoadThemeVariables
      */
     public function handle(ThemeVariablesAreLoading $event)
     {
-        $this->dispatch(new LoadSettings($event->getVariables()));
         $this->dispatch(new LoadVariables($event->getVariables()));
+        $this->dispatch(new LoadSettings($event->getVariables()));
     }
 }
