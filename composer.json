@@ -2,15 +2,14 @@
     "name": "anomaly/appearance-module",
     "type": "streams-addon",
     "description": "Theme and theme customization management.",
-    "version": "1.0.0",
-    "license": "MIT",
     "keywords": [
-        "streams-addon",
-        "appearance",
-        "pyrocms",
-        "laravel"
+        "streams module",
+        "streams addon",
+        "module"
     ],
     "homepage": "http://anomaly.is/",
+    "version": "1.0.1",
+    "license": "MIT",
     "authors": [
         {
             "name": "AnomalyLabs, Inc.",
@@ -29,8 +28,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0.x-dev"
+            "dev-1.0/master": "1.0.x-dev"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
