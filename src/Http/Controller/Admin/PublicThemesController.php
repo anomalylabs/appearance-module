@@ -1,7 +1,6 @@
 <?php namespace Anomaly\AppearanceModule\Http\Controller\Admin;
 
 use Anomaly\SettingsModule\Setting\Form\SettingFormBuilder;
-use Anomaly\Streams\Platform\Addon\Theme\ThemeCollection;
 use Anomaly\Streams\Platform\Http\Controller\AdminController;
 
 /**
@@ -19,11 +18,10 @@ class PublicThemesController extends AdminController
      * Return the settings form for the public theme.
      *
      * @param SettingFormBuilder $settings
-     * @para ThemeCollection $themes
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function settings(SettingFormBuilder $settings, ThemeCollection $themes)
+    public function settings(SettingFormBuilder $settings)
     {
-        return $settings->render(config('streams::themes.active.standard'));
+        return $settings->render(config('streams::themes.standard.active'));
     }
 }
