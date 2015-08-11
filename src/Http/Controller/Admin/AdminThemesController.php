@@ -20,10 +20,15 @@ class AdminThemesController extends AdminController
      * Return the settings form for the admin theme.
      *
      * @param SettingFormBuilder $settings
+     * @param ThemeCollection    $themes
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function settings(SettingFormBuilder $settings)
+    public function settings(SettingFormBuilder $settings,ThemeCollection $themes)
     {
+        if ($theme = $themes->activeAdmin()) {
+            $settings->setOption('title', trans('module::message.active_theme', ['theme' => trans($theme->getName())]));
+        }
+
         return $settings->render(config('streams::themes.admin.active'));
     }
 

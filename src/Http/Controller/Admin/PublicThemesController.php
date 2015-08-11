@@ -22,8 +22,12 @@ class PublicThemesController extends AdminController
      * @param SettingFormBuilder $settings
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function settings(SettingFormBuilder $settings)
+    public function settings(SettingFormBuilder $settings, ThemeCollection $themes)
     {
+        if ($theme = $themes->activeStandard()) {
+            $settings->setOption('title', trans('module::message.active_theme', ['theme' => trans($theme->getName())]));
+        }
+
         return $settings->render(config('streams::themes.standard.active'));
     }
 
