@@ -1,8 +1,7 @@
 <?php
 
 return [
-    'title'       => 'Appearance',
-    'name'        => 'Appearance Module',
+    'name'        => 'Appearance',
     'description' => 'Theme and theme customization management.',
     'section'     => [
         'admin'  => 'Admin Theme',

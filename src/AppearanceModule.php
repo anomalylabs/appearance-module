@@ -26,8 +26,26 @@ class AppearanceModule extends Module
      * @var array
      */
     protected $sections = [
-        'public',
-        'admin'
+        'public' => [
+            'buttons' => [
+                [
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal',
+                    'href'        => 'admin/appearance/choose',
+                    'text'        => 'module::button.change_theme',
+                ]
+            ]
+        ],
+        'admin'  => [
+            'buttons' => [
+                [
+                    'data-toggle' => 'modal',
+                    'data-target' => '#modal',
+                    'href'        => 'admin/appearance/admin/choose',
+                    'text'        => 'module::button.change_theme',
+                ]
+            ]
+        ],
     ];
 
 }
