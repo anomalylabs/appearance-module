@@ -37,7 +37,7 @@ class PublicThemesController extends AdminController
     {
         $themes = $themes->standard();
 
-        return view('module::ajax/standard_themes', compact('themes'));
+        return view('module::ajax/public_themes', compact('themes'));
     }
 
     /**
