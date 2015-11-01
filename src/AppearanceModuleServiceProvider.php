@@ -14,6 +14,17 @@ class AppearanceModuleServiceProvider extends AddonServiceProvider
 {
 
     /**
+     * The addon listeners.
+     *
+     * @var array
+     */
+    protected $listeners = [
+        'Anomaly\Streams\Platform\Asset\Event\ThemeVariablesAreLoading' => [
+            'Anomaly\AppearanceModule\Listener\LoadThemeVariables'
+        ]
+    ];
+
+    /**
      * The addon routes.
      *
      * @var array
@@ -25,17 +36,6 @@ class AppearanceModuleServiceProvider extends AddonServiceProvider
         'admin/appearance/admin'                      => 'Anomaly\AppearanceModule\Http\Controller\Admin\AdminThemesController@settings',
         'admin/appearance/admin/choose'               => 'Anomaly\AppearanceModule\Http\Controller\Admin\AdminThemesController@choose',
         'admin/appearance/admin/activate/{namespace}' => 'Anomaly\AppearanceModule\Http\Controller\Admin\AdminThemesController@activate',
-    ];
-
-    /**
-     * The addon listeners.
-     *
-     * @var array
-     */
-    protected $listeners = [
-        'Anomaly\Streams\Platform\Asset\Event\ThemeVariablesAreLoading' => [
-            'Anomaly\AppearanceModule\Listener\LoadThemeVariables'
-        ]
     ];
 
 }

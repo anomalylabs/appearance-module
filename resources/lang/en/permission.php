@@ -2,14 +2,18 @@
 
 return [
     'public_theme' => [
-        'title'    => 'Public Theme',
-        'settings' => 'Can update public theme settings?',
-        'change'   => 'Change active public theme?'
+        'name'   => 'Public Theme',
+        'option' => [
+            'settings' => 'Can update public theme settings?',
+            'change'   => 'Can change the public theme?'
+        ]
     ],
     'admin_theme'  => [
-        'title'    => 'Admin Theme',
-        'settings' => 'Can update admin theme settings?',
-        'change'   => 'Change active admin theme?'
+        'name'   => 'Admin Theme',
+        'option' => [
+            'settings' => 'Can update control panel theme settings?',
+            'change'   => 'Can change the admin theme?'
+        ]
     ]
 ];
 

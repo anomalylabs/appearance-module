@@ -3,9 +3,9 @@
 return [
     'title'       => 'Appearance',
     'name'        => 'Appearance Module',
-    'description' => 'Manage active themes their settings.',
+    'description' => 'Manage the appearance of the control panel and public theme.',
     'section'     => [
-        'admin'  => 'Admin Theme',
+        'admin'  => 'Control Panel',
         'public' => 'Public Theme'
     ]
 ];

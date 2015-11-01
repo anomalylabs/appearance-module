@@ -1,7 +1,7 @@
 {
     "name": "anomaly/appearance-module",
     "type": "streams-addon",
-    "description": "Theme and theme customization management.",
+    "description": "Manage the appearance of the control panel and public theme.",
     "keywords": [
         "streams module",
         "streams addon",
